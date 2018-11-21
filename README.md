@@ -12,7 +12,7 @@
 
 ## Informações do projeto:
 
-Sistema desenvolvido para o gerenciamento de uma marmoraria
+Sistema desenvolvido para o gerenciamento de uma marmoraria, sob supervisão do professor Rodrigo Cardoso Amaral de Andrade, da disciplina de Engenharia de Software, no Curso de Ciência da Computação na Universidade Federal Rural de Pernambuco - Unidade Acadêmica de Garanhuns.
 
 **Repositório Principal:** [aqui](https://github.com/Time-AAA/MarmorariaSaoJoao)</br>
 **Empresa:** [São João Mármores e Granitos](https://goo.gl/maps/p5wN1FP8Hhw)</br>
