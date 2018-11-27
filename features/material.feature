@@ -38,3 +38,40 @@ Feature: CRUD Material
     Given Eu abro a pagina inicial de cadastro de materiais
     When Eu cadastro um material com o nome "Pd", valor “20,00”, tipo “Marmore”, cor “Rosa” e origem “Nacional”
     Then Eu vejo uma mensagem informando erro no cadastro do material com o nome “Pd”
+
+    # 6)
+
+    Scenario: cadastrar material apenas com caracteres numericos no nome
+    Given Eu abro a pagina inicial de cadastro de materiais
+    When Eu cadastro um material com o nome "123", valor “20,00”, tipo “Marmore”, cor “Rosa” e origem “Nacional”
+    Then Eu vejo uma mensagem informando erro no cadastro do material com o nome “123”
+
+    # 7)
+
+    Scenario: cadastrar material com nome vazio
+    Given Eu abro a pagina inicial de cadastro de materiais
+    When Eu cadastro um material com o nome "", valor “20,00”, tipo “Marmore”, cor “Rosa” e origem “Nacional”
+    Then Eu vejo uma mensagem informando erro no cadastro do material com o nome “”
+
+    # 8)
+
+    Scenario: cadastrar material com valor negativo
+    Given Eu abro a pagina inicial de cadastro de materiais
+    When Eu cadastro um material com o nome "Marmore Resinado", valor “-20,00”, tipo “Marmore”, cor “Rosa” e origem “Nacional
+    Then Eu vejo uma mensagem informando erro no cadastro do material com o nome “Marmore Resinado”
+
+    # 9)
+
+    Scenario: cadastrar material com valor vazio
+    Given Eu abro a pagina inicial de cadastro de materiais
+    When Eu cadastro um material com o nome "Marmore Resinado", valor “”, tipo “Marmore”, cor “Rosa” e origem “Nacional”
+    Then Eu vejo uma mensagem informando erro no cadastro do material com o nome “Marmore Resinado”
+
+    # 10)
+
+    Scenario: editar material com nome maior que cinquenta caracteres
+    Given Eu abro a pagina de informacoes dos materiais
+    When Eu seleciono a opcao de editar o material com nome “Marmore Resinado” e valor “20,00”
+    And Eu altero o campo nome para “Marmore Resinado Bruto Resinado Bruto Resinado Bruto”
+    And Eu clico em salvar
+    Then Eu vejo uma mensagem informando erro ao salvar as alteracoes do material com o nome “Marmore Resinado”
