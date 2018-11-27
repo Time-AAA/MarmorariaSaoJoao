@@ -75,3 +75,48 @@ Feature: CRUD Material
     And Eu altero o campo nome para “Marmore Resinado Bruto Resinado Bruto Resinado Bruto”
     And Eu clico em salvar
     Then Eu vejo uma mensagem informando erro ao salvar as alteracoes do material com o nome “Marmore Resinado”
+
+    #11)
+
+    Scenario: editar material com nome menor que tres caracretes
+    Given Eu abro a pagina de informacoes dos materiais
+    When Eu seleciono a opcao de editar o material com nome “Marmore Resinado” e valor “20,00”
+    And Eu altero o campo nome para “Pd”
+    And Eu clico em salvar
+    Then Eu vejo uma mensagem informando erro ao salvar as alteracoes do material com o nome “Marmore Resinado”
+
+    #12)
+
+    Scenario: editar material apenas com caracteres numericos no nome
+    Given Eu abro a pagina de informacoes dos materiais
+    When Eu seleciono a opcao de editar o material com nome “Marmore Resinado” e valor “20,00”
+    And Eu altero o campo nome para “123”
+    And Eu clico em salvar
+    Then Eu vejo uma mensagem informando erro no cadastro do material com o nome “Marmore Resinado”
+
+    #13)
+
+    Scenario: editar material com com nome vazio
+    Given Eu abro a pagina de informacoes dos materiais
+    When Eu seleciono a opcao de editar o material com nome “Marmore Resinado” e valor “20,00”
+    And Eu altero o campo nome para “”
+    And Eu clico em salvar
+    Then Eu vejo uma mensagem informando erro ao salvar as alteracoes do material com o nome “Marmore Resinado”
+
+    #14)
+
+    Scenario: editar material com valor negativo
+    Given Eu abro a pagina de informacoes dos materiais
+    When Eu seleciono a opcao de editar o material com nome “Marmore Resinado” e valor “20,00”
+    And Eu altero o campo de valor para “-20,00”
+    And Eu clico em salvar
+    Then Eu vejo uma mensagem informando erro ao salvar as alteracoes do material com o nome “Marmore Resinado”
+
+    #15)
+
+    Scenario: editar material com com valor vazio
+    Given Eu abro a pagina de informacoes dos materiais
+    When Eu seleciono a opcao de editar o material com nome “Marmore Resinado” e valor “20,00”
+    And Eu altero o campo de valor para “”
+    And Eu clico em salvar
+    Then Eu vejo uma mensagem informando erro ao salvar as alteracoes do material com o nome “Marmore Resinado”
