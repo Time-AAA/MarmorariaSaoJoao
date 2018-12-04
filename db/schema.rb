@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20181203185030) do
     t.string "tipo"
     t.string "cor"
     t.string "origem"
+  end
+
+ActiveRecord::Schema.define(version: 20181203173356) do
+
+  create_table "fornecedors", force: :cascade do |t|
+    t.string "nome"
+    t.string "cnpj"
+    t.string "telefone"
+    t.string "email"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
