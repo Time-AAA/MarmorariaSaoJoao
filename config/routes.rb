@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :clientes
+  resources :funcionarios
   resources :fornecedors
   resources :materials
   
