@@ -23,8 +23,8 @@
         <td><%= material.cor %></td>
         <td><%= material.origem %></td>
         <td><%= link_to 'Show', material %></td>
-        <td><%= link_to 'Edit', edit_material_path(material) %></td>
-        <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_material_path(material), id: "editar-#{material.nome}" %></td>
+        <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' }, id: "delete-#{material.nome}" %></td>
       </tr>
     <% end %>
   </tbody>
