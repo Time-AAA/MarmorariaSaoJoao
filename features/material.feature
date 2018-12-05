@@ -7,7 +7,7 @@ Feature: CRUD Material
 
     Scenario: cadastrar material com sucesso
         Given Eu abro a pagina inicial de cadastro de materiais
-        When Eu cadastro um material com o nome "Marmore Resinado", valor "20,00", tipo "Marmore", cor "Rosa" e origem "Nacional"
+        When Eu cadastro um material com o nome "Marmore Resinado", valor "20.00", tipo "Marmore", cor "Rosa" e origem "Nacional"
         Then Eu vejo uma mensagem de confirmacao informando que o material com o nome "Marmore Resinado" foi cadastrado com sucesso
 
     # 2)
