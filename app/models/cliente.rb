@@ -3,11 +3,10 @@ class Cliente < ApplicationRecord
   validates :nome, presence: { message: 'é um campo obrigatório' }
   validates :nome, length: { minimum: 5, message: ' tem menos de cinco caracteres' }
   validates :nome, length: { maximum: 200, message: ' tem mais de cinquenta caracteres' }
-  validates :nome, format: { with: /\A[a-zA-Z-' '-ãẽĩõũáéíóúàèìòùâêîôûäüïöü]+\z/, message: ' deve possuir apenas letras' }
+  validates :nome, format: { with: /\A[a-zA-Z-' '-ãẽĩõũáéíóúàèìòùâêîôûäüïöü-]+\z/, message: ' deve possuir apenas letras' }
 
   # cpf
   validates :cpf, presence: { message: 'é um campo obrigatório' }
-
 
   # telefone
   validates :telefone, presence: { message: 'é um campo obrigatório' }
