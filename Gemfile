@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# SimpleCov - Code coverage for Ruby
+gem 'simplecov', require: false, group: :test
 
 gem 'rspec'
 gem 'cucumber'
