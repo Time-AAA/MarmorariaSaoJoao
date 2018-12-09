@@ -5,6 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rspec'
+
+group :test do
+  gem 'cucumber-rails', require: false
+end
+
+gem 'cucumber'
+
 # Use Rake
 gem 'rake', '~> 12.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
