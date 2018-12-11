@@ -2,13 +2,15 @@
 
 ## Informações do nosso time:
 
-**Integrantes:**
-* [**A**nderson Gonçalves de Farias Lima](https://github.com/Andersontno)
-* [**A**ntônio Adelino da Silva Neto](https://github.com/AntonioAdelino)
-* [**A**rmstrong Lohãns de Melo Gomes Quintino](https://github.com/lohhans)
-
 **Time:**
 * [Time **AAA**](https://github.com/Time-AAA/)
+
+**Integrantes:**
+
+[![Anderson G. F. L.](https://avatars1.githubusercontent.com/u/30607467?s=64&v=4)](https://github.com/Andersontno) |  [![Antônio A. S. N.](https://avatars1.githubusercontent.com/u/33501786?s=64&v=4)](https://github.com/AntonioAdelino) |  [![Armstrong L. M. G. Q.](https://avatars0.githubusercontent.com/u/30741312?s=64&v=4)](https://github.com/lohhans)
+|-------------------|-------------------|-------------------|
+| Anderson G. F. L. | Antônio A. S. N. | Armstrong L. M. G. Q. |
+| [@Andersontno](https://github.com/Andersontno) | [@AntonioAdelino](https://github.com/AntonioAdelino) | [@lohhans](https://github.com/lohhans) | 
 
 ## Informações do projeto:
 
