@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Codacy
 gem 'codacy-coverage', require: false
 
+# Biblioteca para Windows
+gem 'coffee-script-source', '1.8.0'
+
 gem 'cucumber'
 # gem 'rspec'
 
@@ -44,9 +47,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.8'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
-  gem 'rspec-rails', '~> 3.8'
 end
 
 group :test do
