@@ -1,5 +1,7 @@
 # **Marmoraria São João**
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fecd507a743a43e7ba26f527002a7db4)](https://app.codacy.com/app/Time-AAA/MarmorariaSaoJoao?utm_source=github.com&utm_medium=referral&utm_content=Time-AAA/MarmorariaSaoJoao&utm_campaign=Badge_Grade_Settings)
+
 ## Informações do nosso time:
 
 **Integrantes:**
