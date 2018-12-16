@@ -10,7 +10,7 @@ class Cliente < ApplicationRecord
 
   # telefone
   validates :telefone, presence: { message: 'é um campo obrigatório' }
-  
+
   # rua
   validates :rua, presence: { message: 'é um campo obrigatório' }
 
