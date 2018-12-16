@@ -1,5 +1,5 @@
 class FuncionariosController < ApplicationController
-  before_action :set_funcionario, only: [:show, :edit, :update, :destroy]
+  before_action :set_funcionario, only: %i[show edit update destroy]
 
   # GET /funcionarios
   # GET /funcionarios.json
@@ -9,8 +9,7 @@ class FuncionariosController < ApplicationController
 
   # GET /funcionarios/1
   # GET /funcionarios/1.json
-  def show
-  end
+  def show; end
 
   # GET /funcionarios/new
   def new
@@ -18,8 +17,7 @@ class FuncionariosController < ApplicationController
   end
 
   # GET /funcionarios/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /funcionarios
   # POST /funcionarios.json
@@ -28,7 +26,7 @@ class FuncionariosController < ApplicationController
 
     respond_to do |format|
       if @funcionario.save
-        format.html { redirect_to @funcionario, notice: 'Funcionario was successfully created.' }
+        format.html { redirect_to @funcionario, notice: 'Funcionario com nome ' + @funcionario.nome + ' foi cadastrado com sucesso' }
         format.json { render :show, status: :created, location: @funcionario }
       else
         format.html { render :new }
@@ -42,7 +40,7 @@ class FuncionariosController < ApplicationController
   def update
     respond_to do |format|
       if @funcionario.update(funcionario_params)
-        format.html { redirect_to @funcionario, notice: 'Funcionario was successfully updated.' }
+        format.html { redirect_to @funcionario, notice: 'Funcionario com nome ' + @funcionario.nome + ' foi atualizado com sucesso' }
         format.json { render :show, status: :ok, location: @funcionario }
       else
         format.html { render :edit }
@@ -56,19 +54,20 @@ class FuncionariosController < ApplicationController
   def destroy
     @funcionario.destroy
     respond_to do |format|
-      format.html { redirect_to funcionarios_url, notice: 'Funcionario was successfully destroyed.' }
+      format.html { redirect_to funcionarios_url, notice: 'Funcionario com nome ' + @funcionario.nome + ' foi removido com sucesso' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_funcionario
-      @funcionario = Funcionario.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def funcionario_params
-      params.require(:funcionario).permit(:nome, :cpf, :telefone, :salario, :rua, :numero, :complemento, :cep, :cidade, :estado)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_funcionario
+    @funcionario = Funcionario.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def funcionario_params
+    params.require(:funcionario).permit(:nome, :cpf, :telefone, :salario, :rua, :numero, :complemento, :cep, :cidade, :estado)
+  end
 end
