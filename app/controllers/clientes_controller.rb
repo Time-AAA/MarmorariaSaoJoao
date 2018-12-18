@@ -23,30 +23,13 @@ class ClientesController < ApplicationController
   # POST /clientes.json
   def create
     @cliente = Cliente.new(cliente_params)
-
-    respond_to do |format|
-      if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente com nome ' + @cliente.nome + ' foi criado com sucesso.' }
-        format.json { render :show, status: :created, location: @cliente }
-      else
-        format.html { render :new }
-        format.json { render json: @cliente.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarAC(@cliente.save, 'cadastrado', :created, :new)
   end
 
   # PATCH/PUT /clientes/1
   # PATCH/PUT /clientes/1.json
   def update
-    respond_to do |format|
-      if @cliente.update(cliente_params)
-        format.html { redirect_to @cliente, notice: 'Cliente com nome ' + @cliente.nome + ' foi atualizado com sucesso' }
-        format.json { render :show, status: :ok, location: @cliente }
-      else
-        format.html { render :edit }
-        format.json { render json: @cliente.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarAC(@cliente.update(cliente_params), 'atualizado', :ok, :edit)
   end
 
   # DELETE /clientes/1
@@ -69,5 +52,17 @@ class ClientesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def cliente_params
     params.require(:cliente).permit(:nome, :cpf, :telefone, :rua, :numero, :complemento, :cep, :cidade, :estado)
+  end
+
+  def auxiliarAC(metodo, acao, statusAtual, renderElse)
+    respond_to do |format|
+      if metodo
+        format.html { redirect_to @cliente, notice: 'Cliente com nome ' + @cliente.nome + ' foi ' + acao + ' com sucesso' }
+        format.json { render :show, status: statusAtual, location: @cliente }
+      else
+        format.html { render renderElse }
+        format.json { render json: @cliente.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end
