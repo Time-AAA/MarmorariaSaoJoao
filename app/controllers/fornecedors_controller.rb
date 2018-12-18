@@ -23,30 +23,13 @@ class FornecedorsController < ApplicationController
   # POST /fornecedors.json
   def create
     @fornecedor = Fornecedor.new(fornecedor_params)
-
-    respond_to do |format|
-      if @fornecedor.save
-        format.html { redirect_to @fornecedor, notice: 'Fornecedor com nome ' + @fornecedor.nome + ' foi cadastrado com sucesso' }
-        format.json { render :show, status: :created, location: @fornecedor }
-      else
-        format.html { render :new }
-        format.json { render json: @fornecedor.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarCreateUpdate(@fornecedor, @fornecedor.save, 'cadastrado', :created, :new)
   end
 
   # PATCH/PUT /fornecedors/1
   # PATCH/PUT /fornecedors/1.json
   def update
-    respond_to do |format|
-      if @fornecedor.update(fornecedor_params)
-        format.html { redirect_to @fornecedor, notice: 'Fornecedor com nome ' + @fornecedor.nome + ' foi atualizado com sucesso' }
-        format.json { render :show, status: :ok, location: @fornecedor }
-      else
-        format.html { render :edit }
-        format.json { render json: @fornecedor.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarCreateUpdate(@fornecedor, @fornecedor.update(fornecedor_params), 'atualizado', :ok, :edit)
   end
 
   # DELETE /fornecedors/1

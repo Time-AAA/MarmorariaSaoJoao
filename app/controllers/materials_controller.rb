@@ -23,30 +23,13 @@ class MaterialsController < ApplicationController
   # POST /materials.json
   def create
     @material = Material.new(material_params)
-
-    respond_to do |format|
-      if @material.save
-        format.html { redirect_to @material, notice: 'Material com nome ' + @material.nome + ' foi cadastrado com sucesso.' }
-        format.json { render :show, status: :created, location: @material }
-      else
-        format.html { render :new }
-        format.json { render json: @material.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarCreateUpdate(@material, @material.save, 'cadastrado', :created, :new)
   end
 
   # PATCH/PUT /materials/1
   # PATCH/PUT /materials/1.json
   def update
-    respond_to do |format|
-      if @material.update(material_params)
-        format.html { redirect_to @material, notice: 'Material com nome ' + @material.nome + ' foi atualizado com sucesso.' }
-        format.json { render :show, status: :ok, location: @material }
-      else
-        format.html { render :edit }
-        format.json { render json: @material.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarCreateUpdate(@material, @material.update(fornecedor_params), 'atualizado', :ok, :edit)
   end
 
   # DELETE /materials/1
