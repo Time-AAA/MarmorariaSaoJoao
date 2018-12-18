@@ -23,13 +23,13 @@ class ClientesController < ApplicationController
   # POST /clientes.json
   def create
     @cliente = Cliente.new(cliente_params)
-    auxiliarAC(@cliente.save, 'cadastrado', :created, :new)
+    auxiliarCreateUpdate(@cliente, @cliente.save, 'cadastrado', :created, :new)
   end
 
   # PATCH/PUT /clientes/1
   # PATCH/PUT /clientes/1.json
   def update
-    auxiliarAC(@cliente.update(cliente_params), 'atualizado', :ok, :edit)
+    auxiliarCreateUpdate(@cliente, @cliente.update(cliente_params), 'atualizado', :ok, :edit)
   end
 
   # DELETE /clientes/1
@@ -54,15 +54,4 @@ class ClientesController < ApplicationController
     params.require(:cliente).permit(:nome, :cpf, :telefone, :rua, :numero, :complemento, :cep, :cidade, :estado)
   end
 
-  def auxiliarAC(metodo, acao, statusAtual, renderElse)
-    respond_to do |format|
-      if metodo
-        format.html { redirect_to @cliente, notice: 'Cliente com nome ' + @cliente.nome + ' foi ' + acao + ' com sucesso' }
-        format.json { render :show, status: statusAtual, location: @cliente }
-      else
-        format.html { render renderElse }
-        format.json { render json: @cliente.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 end
