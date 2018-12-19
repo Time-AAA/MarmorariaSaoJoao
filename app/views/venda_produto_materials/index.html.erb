@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Venda Produto Materials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Venda</th>
+      <th>Produto</th>
+      <th>Material</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venda_produto_materials.each do |venda_produto_material| %>
+      <tr>
+        <td><%= venda_produto_material.venda %></td>
+        <td><%= venda_produto_material.produto %></td>
+        <td><%= venda_produto_material.material %></td>
+        <td><%= link_to 'Show', venda_produto_material %></td>
+        <td><%= link_to 'Edit', edit_venda_produto_material_path(venda_produto_material) %></td>
+        <td><%= link_to 'Destroy', venda_produto_material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venda Produto Material', new_venda_produto_material_path %>
