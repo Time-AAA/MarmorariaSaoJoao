@@ -30,9 +30,9 @@
         <td><%= cliente.cep %></td>
         <td><%= cliente.cidade %></td>
         <td><%= cliente.estado %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', cliente %></td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
+        <td><%= link_to 'Apagar', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -41,4 +41,4 @@
 <br>
 
 <%= link_to 'Novo Cliente', new_cliente_path %>
-<%= link_to 'Back', root_path %>
+<%= link_to 'Voltar', root_path %>
