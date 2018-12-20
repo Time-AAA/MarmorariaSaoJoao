@@ -4,7 +4,7 @@ class CreateVendas < ActiveRecord::Migration[5.1]
       t.references :produto, foreign_key: true
       t.references :material, foreign_key: true
       t.float :valorVenda
-      t.float :valorInstalação
+      t.float :valorInstalacao
       t.references :cliente, foreign_key: true
 
       t.timestamps

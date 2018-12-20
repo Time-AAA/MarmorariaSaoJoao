@@ -2,12 +2,12 @@
 
 <p>
   <strong>Produto:</strong>
-  <%= @venda.produto %>
+  <%= @venda.produto.nome %>
 </p>
 
 <p>
   <strong>Material:</strong>
-  <%= @venda.material %>
+  <%= @venda.material.nome %>
 </p>
 
 <p>
@@ -17,12 +17,12 @@
 
 <p>
   <strong>Valorinstalação:</strong>
-  <%= @venda.valorInstalação %>
+  <%= @venda.valorInstalacao %>
 </p>
 
 <p>
   <strong>Cliente:</strong>
-  <%= @venda.cliente %>
+  <%= @venda.cliente.nome %>
 </p>
 
 <%= link_to 'Edit', edit_venda_path(@venda) %> |

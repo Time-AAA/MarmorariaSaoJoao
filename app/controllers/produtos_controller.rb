@@ -1,5 +1,5 @@
 class ProdutosController < ApplicationController
-  before_action :set_produto, only: [:show, :edit, :update, :destroy]
+  before_action :set_produto, only: %i[show edit update destroy]
 
   # GET /produtos
   # GET /produtos.json
@@ -9,8 +9,7 @@ class ProdutosController < ApplicationController
 
   # GET /produtos/1
   # GET /produtos/1.json
-  def show
-  end
+  def show; end
 
   # GET /produtos/new
   def new
@@ -18,37 +17,19 @@ class ProdutosController < ApplicationController
   end
 
   # GET /produtos/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /produtos
   # POST /produtos.json
   def create
     @produto = Produto.new(produto_params)
-
-    respond_to do |format|
-      if @produto.save
-        format.html { redirect_to @produto, notice: 'Produto was successfully created.' }
-        format.json { render :show, status: :created, location: @produto }
-      else
-        format.html { render :new }
-        format.json { render json: @produto.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarCreateUpdate(@produto, @produto.save, 'cadastrado', :created, :new)
   end
 
   # PATCH/PUT /produtos/1
   # PATCH/PUT /produtos/1.json
   def update
-    respond_to do |format|
-      if @produto.update(produto_params)
-        format.html { redirect_to @produto, notice: 'Produto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @produto }
-      else
-        format.html { render :edit }
-        format.json { render json: @produto.errors, status: :unprocessable_entity }
-      end
-    end
+    auxiliarCreateUpdate(@produto, @produto.update(cliente_params), 'atualizado', :ok, :edit)
   end
 
   # DELETE /produtos/1
@@ -62,13 +43,14 @@ class ProdutosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_produto
-      @produto = Produto.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def produto_params
-      params.require(:produto).permit(:nome)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_produto
+    @produto = Produto.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def produto_params
+    params.require(:produto).permit(:nome)
+  end
 end
