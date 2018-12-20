@@ -60,30 +60,4 @@ ActiveRecord::Schema.define(version: 20181218230002) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "produtos", force: :cascade do |t|
-    t.string "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "venda_produto_materials", force: :cascade do |t|
-    t.integer "venda_id"
-    t.integer "produto_id"
-    t.integer "material_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["material_id"], name: "index_venda_produto_materials_on_material_id"
-    t.index ["produto_id"], name: "index_venda_produto_materials_on_produto_id"
-    t.index ["venda_id"], name: "index_venda_produto_materials_on_venda_id"
-  end
-
-  create_table "vendas", force: :cascade do |t|
-    t.float "valorVenda"
-    t.float "valorInstalacao"
-    t.integer "cliente_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cliente_id"], name: "index_vendas_on_cliente_id"
-  end
-
 end
