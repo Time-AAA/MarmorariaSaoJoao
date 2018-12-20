@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :produtos
+  resources :vendas
   get 'home/index'
 
   root to: 'home#index'

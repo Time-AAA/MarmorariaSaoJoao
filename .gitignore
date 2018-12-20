@@ -25,3 +25,5 @@
 
 .byebug_history
 coverage
+
+/spec/*
