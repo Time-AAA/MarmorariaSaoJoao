@@ -1,8 +1,5 @@
 class VendasController < ApplicationController
   before_action :set_venda, only: %i[show edit update destroy]
-  before_action :set_produto, only: %i[edit update new]
-  before_action :set_material, only: %i[edit update new]
-  before_action :set_cliente, only: %i[edit update new]
 
   # GET /vendas
   # GET /vendas.json
@@ -26,13 +23,30 @@ class VendasController < ApplicationController
   # POST /vendas.json
   def create
     @venda = Venda.new(venda_params)
-    auxiliarCreateUpdate(@venda, @venda.save, 'cadastrada', :created, :new)
+
+    respond_to do |format|
+      if @venda.save
+        format.html { redirect_to @venda, notice: 'Venda was successfully created.' }
+        format.json { render :show, status: :created, location: @venda }
+      else
+        format.html { render :new }
+        format.json { render json: @venda.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /vendas/1
   # PATCH/PUT /vendas/1.json
   def update
-    auxiliarCreateUpdate(@venda, @venda.update(cliente_params), 'atualizada', :ok, :edit)
+    respond_to do |format|
+      if @venda.update(venda_params)
+        format.html { redirect_to @venda, notice: 'Venda was successfully updated.' }
+        format.json { render :show, status: :ok, location: @venda }
+      else
+        format.html { render :edit }
+        format.json { render json: @venda.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /vendas/1
@@ -50,18 +64,6 @@ class VendasController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_venda
     @venda = Venda.find(params[:id])
-  end
-
-  def set_produto
-    @produtos = Produto.all
-  end
-
-  def set_material
-    @materials = Material.all
-  end
-
-  def set_cliente
-    @clientes = Cliente.all
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

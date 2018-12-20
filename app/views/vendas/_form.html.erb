@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :produto_id %>
-    <%= form.collection_select(:produto_id, @produtos, :id, :nome, prompt: true)%>
+    <%= form.collection_select(:produto_id, Produto.all, :id, :nome, prompt: true)%>
   </div>
 
   <div class="field">
     <%= form.label :material_id %>
-    <%= form.collection_select(:material_id, @materials, :id, :nome, prompt: true)%>
+    <%= form.collection_select(:material_id, Material.all, :id, :nome, prompt: true)%>
   </div>
 
   <div class="field">
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.collection_select(:cliente_id, @clientes, :id, :nome, prompt: true)%>
+    <%= form.collection_select(:cliente_id, Cliente.all, :id, :nome, prompt: true)%>
   </div>
 
   <div class="actions">
