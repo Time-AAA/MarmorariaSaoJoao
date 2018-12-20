@@ -20,9 +20,9 @@
         <td><%= fornecedor.cnpj %></td>
         <td><%= fornecedor.telefone %></td>
         <td><%= fornecedor.email %></td>
-        <td><%= link_to 'Show', fornecedor %></td>
-        <td><%= link_to 'Edit', edit_fornecedor_path(fornecedor) %></td>
-        <td><%= link_to 'Destroy', fornecedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', fornecedor %></td>
+        <td><%= link_to 'Editar', edit_fornecedor_path(fornecedor) %></td>
+        <td><%= link_to 'Apagar', fornecedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,5 +30,5 @@
 
 <br>
 
-<%= link_to 'Novo Fornecedor', new_fornecedor_path %>
-<%= link_to 'Back', root_path %>
+<%= link_to 'Novo fornecedor', new_fornecedor_path %>
+<%= link_to 'Voltar', root_path %>

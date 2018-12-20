@@ -25,16 +25,16 @@
         <td><%= funcionario.nome %></td>
         <td><%= funcionario.cpf %></td>
         <td><%= funcionario.telefone %></td>
-        <td><%= funcionario.salario %></td>
+        <td>R$ <%= funcionario.salario %></td>
         <td><%= funcionario.rua %></td>
         <td><%= funcionario.numero %></td>
         <td><%= funcionario.complemento %></td>
         <td><%= funcionario.cep %></td>
         <td><%= funcionario.cidade %></td>
         <td><%= funcionario.estado %></td>
-        <td><%= link_to 'Show', funcionario %></td>
-        <td><%= link_to 'Edit', edit_funcionario_path(funcionario) %></td>
-        <td><%= link_to 'Destroy', funcionario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', funcionario %></td>
+        <td><%= link_to 'Editar', edit_funcionario_path(funcionario) %></td>
+        <td><%= link_to 'Apagar', funcionario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,5 +42,5 @@
 
 <br>
 
-<%= link_to 'New Funcionario', new_funcionario_path %>
-<%= link_to 'Back', root_path  %>
+<%= link_to 'Novo funcionario', new_funcionario_path %>
+<%= link_to 'Voltar', root_path  %>
