@@ -1,7 +1,7 @@
 <%= form_with(model: fornecedor, local: true) do |form| %>
   <% if fornecedor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(fornecedor.errors.count, "error") %> prohibited this fornecedor from being saved:</h2>
+      <h2><%= pluralize(fornecedor.errors.count, "error") %> impediram esse fornecedor de ser salvo:</h2>
 
       <ul>
       <% fornecedor.errors.full_messages.each do |message| %>

@@ -1,7 +1,7 @@
 <%= form_with(model: material, local: true) do |form| %>
   <% if material.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
+      <h2><%= pluralize(material.errors.count, "error") %> impediram esse material de ser salvo:</h2>
 
       <ul>
       <% material.errors.full_messages.each do |message| %>
