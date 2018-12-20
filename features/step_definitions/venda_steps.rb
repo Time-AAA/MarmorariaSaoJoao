@@ -1,6 +1,6 @@
 Given("Eu abro a pagina de realizacao de vendas") do
   visit '/vendas/new'
-  expect(page).to have_content('New Venda')
+  expect(page).to have_content('Nova venda')
 end
 
 Given("Existe um cliente com o nome {string}, CPF {string}, rua {string}, numero {string}, CEP {string}, cidade {string}, UF {string} e telefone de contato {string}, produto com nome {string} alem de um material com o nome {string}, valor {string}, tipo {string}, cor {string} e origem {string}") do |nomeCliente, cpf, rua, numero, cep, cidade, uf, telefone, nomeProduto, nomeMaterial, valor, tipo, cor, origem|
@@ -42,7 +42,7 @@ When("Eu preencho os campos relacionados a venda com o produto {string}, materia
 
   select material, :from => "venda[material_id]"
   fill_in 'venda[valorVenda]', with: valor
-  fill_in 'venda[valorInstalação]', with: instalacao
+  fill_in 'venda[valorInstalacao]', with: instalacao
 
   select cliente, :from => "venda[cliente_id]"
 
@@ -53,10 +53,10 @@ When("Eu clico em realizar venda") do
 end
 
 Then("Eu vejo uma mensagem de confirmacao informando que a venda foi realizada com sucesso") do
-  expect(page).to have_content('Venda was Successfully')end
+  expect(page).to have_content('Venda was successfully created.')end
 
 When("Eu clico em cancelar") do
-  click_link 'Voltar'
+  click_link 'Back'
 end
 
 Then("Eu volto para a pagina de realizacao de vendas") do
@@ -64,15 +64,4 @@ Then("Eu volto para a pagina de realizacao de vendas") do
 
 Then("Eu vejo uma mensagem de erro") do
   expect(page).to have_content('error')
-end
-
-Given("Existe um produto com nome {string} alem de um material com o nome {string}, valor {string}, tipo {string}, cor {string} e origem {string}") do |produto, material, valor, instalacao, cliente|
-
-  select produto, :from => "venda[produto_id]"
-
-  select material, :from => "venda[material_id]"
-  fill_in 'venda[valorVenda]', with: valor
-  fill_in 'venda[valorInstalação]', with: instalacao
-
-  select cliente, :from => "venda[cliente_id]"
 end
