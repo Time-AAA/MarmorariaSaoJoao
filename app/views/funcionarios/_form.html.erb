@@ -1,7 +1,7 @@
 <%= form_with(model: funcionario, local: true) do |form| %>
   <% if funcionario.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(funcionario.errors.count, "error") %> prohibited this funcionario from being saved:</h2>
+      <h2><%= pluralize(funcionario.errors.count, "error") %> impediram esse funcionario de ser salvo:</h2>
 
       <ul>
       <% funcionario.errors.full_messages.each do |message| %>
