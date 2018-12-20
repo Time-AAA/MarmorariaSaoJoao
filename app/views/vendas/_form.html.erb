@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :produto_id %>
-    <%= form.text_field :produto_id, id: :venda_produto_id %>
+    <%= form.collection_select(:produto_id, @produtos, :id, :nome, prompt: true)%>
   </div>
 
   <div class="field">
     <%= form.label :material_id %>
-    <%= form.text_field :material_id, id: :venda_material_id %>
+    <%= form.collection_select(:material_id, @materials, :id, :nome, prompt: true)%>
   </div>
 
   <div class="field">
@@ -27,13 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :valorInstalação %>
-    <%= form.text_field :valorInstalação, id: :venda_valorInstalação %>
+    <%= form.label :valorInstalacao %>
+    <%= form.text_field :valorInstalacao, id: :venda_valorInstalacao %>
   </div>
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id, id: :venda_cliente_id %>
+    <%= form.collection_select(:cliente_id, @clientes, :id, :nome, prompt: true)%>
   </div>
 
   <div class="actions">
