@@ -7,6 +7,7 @@ class Cliente < ApplicationRecord
 
   # cpf
   validates :cpf, presence: { message: 'é um campo obrigatório' }
+  validates :cpf, uniqueness: { message: 'já cadastrado' }
 
   # telefone
   validates :telefone, presence: { message: 'é um campo obrigatório' }

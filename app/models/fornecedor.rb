@@ -8,5 +8,6 @@ class Fornecedor < ApplicationRecord
 
   # cnpj
   validates :cnpj, presence: {message: "é um campo obrigatório"}
+  validates :cnpj, uniqueness: {message: "já cadastrado"}
   validates :cnpj, format: { without: /\A[a-zA-Z' 'ãẽĩõũáéíóúàèìòùâêîôûäüïöü-]+\z/, message: " deve possuir apenas letras" }
 end
